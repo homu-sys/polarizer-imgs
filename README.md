@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>polarizer images</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: #ffffff;
+      color: #111111;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 24px;
+      line-height: 1.65;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      margin-top: 2rem;
+      font-size: 1.4rem;
+    }
+
+    strong {
+      font-weight: 700;
+    }
+
+    code {
+      background: #f2f2f2;
+      padding: 2px 6px;
+      font-size: 0.9rem;
+    }
+
+    button {
+      background: #111111;
+      color: #ffffff;
+      border: none;
+      border-radius: 0;
+      padding: 8px 18px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #333333;
+    }
+
+    a {
+      color: #111111;
+      font-weight: 600;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #d9d9d9;
+      margin-top: 2.5rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 8px 12px;
+      border-bottom: 1px solid #d9d9d9;
+    }
+
+    th {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Polarizer Images</h1>
+
+  <p>
+    Pre-made, packed OS images for <strong>polarizer</strong> — the EOF barrier around things.
+    Each image ships a ready-to-boot qcow2 disk plus a manifest describing its ssh settings.
+  </p>
+
+  <p>
+    <code>polarizer getimg openbsd:latest</code>
+    &nbsp; <button onclick="navigator.clipboard.writeText('polarizer getimg openbsd:latest').then(() => { this.textContent = 'Copied!'; setTimeout(() => { this.textContent = 'Copy command'; }, 1500); })">Copy command</button>
+  </p>
+
+  <h2>Available Images</h2>
+
+  <table>
+    <tr>
+      <th>Image</th>
+      <th>Size</th>
+      <th>SHA-256</th>
+    </tr>
+    <tr>
+      <td><strong>openbsd:latest</strong></td>
+      <td><a href="openbsd/openbsd-latest.qcow2">openbsd-latest.qcow2</a></td>
+      <td><a href="openbsd/latest.json">latest.json</a></td>
+    </tr>
+  </table>
+
+  <h2>How to Use</h2>
+  <ol>
+    <li>Point polarizer at this channel and pull the image:
+      <br><code>polarizer getimg openbsd:latest</code></li>
+    <li>Staple a containment around it:
+      <br><code>polarizer contain containment-1</code></li>
+    <li>Boot it and get the shell:
+      <br><code>polarizer run containment-1</code></li>
+  </ol>
+  <p>You'll land on <code>ssh -p 65531</code> with a <code>[OpenBSD] $</code> prompt.</p>
+
+  <hr>
+  <p><small>Images are pre-made by hand; verify the sha256 in each manifest before trusting a disk.</small></p>
+  <footer>All copyrights reserved to homueicon, 12alex12.</footer>
+
+</body>
+</html>
